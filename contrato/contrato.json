@@ -1,0 +1,132 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API Gateway do Mix Fast Token",
+    "version" : "1.0.0",
+    "title" : "mixfast-api-gateway-token"
+  },
+  "host" : "api_key.execute-api.us-east-2.amazonaws.com",
+  "basePath" : "/mixfast-token",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/users": {
+      "post": {
+        "operationId": "cadastrarUsuario",
+        "responses": {
+          "200": {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/CreateUserResponse"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri": "${lambda_create}",
+          "type" : "aws",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          }
+        }
+      }
+    },
+    "/confirm": {
+      "post": {
+        "operationId": "confirmarUsuario",
+        "responses": {
+          "200": {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/ConfirmUserResponse"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri": "${lambda_create}",
+          "type" : "aws",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "operationId": "confirmarUsuario",
+        "responses": {
+          "200": {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/LoginUserResponse"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri": "${lambda_create}",
+          "type" : "aws",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CreateUserResponse" : {
+      "type": "object",
+      "properties": {
+        "isSuccessful": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "string"
+        },
+        "cognitoUserId": {
+          "type": "string"
+        },
+        "isConfirmed": {
+          "type": "string"
+        }
+      }
+    },
+    "ConfirmUserResponse" : {
+      "type": "object",
+      "properties": {
+        "isSuccessful": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "string"
+        }
+      }
+    },
+    "LoginUserResponse" : {
+      "type": "object",
+      "properties": {
+        "isSuccessful": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "string"
+        },
+        "idToken": {
+          "type": "string"
+        },
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
