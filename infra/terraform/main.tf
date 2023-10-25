@@ -20,7 +20,7 @@ resource "aws_api_gateway_method" "mixfast_api_gateway_method" {
   rest_api_id   = aws_api_gateway_rest_api.mixfast_api_gateway.id
   resource_id   = aws_api_gateway_resource.mixfast_api_gateway_resource.id
   http_method   = "ANY"
-  authorization = "CUSTOM"
+  authorization = "NONE"
 }
 
 resource "aws_api_gateway_integration" "mixfast_api_gateway_integration_vpc_link" {
