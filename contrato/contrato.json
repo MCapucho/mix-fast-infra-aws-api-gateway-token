@@ -23,7 +23,7 @@
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
           "uri": "${lambda_create}",
-          "type" : "aws",
+          "type" : "AWS_PROXY",
           "credentials": "${credentials}",
           "responses" : {
             "default" : {
@@ -47,7 +47,7 @@
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
           "uri": "${lambda_confirm}",
-          "type" : "aws",
+          "type" : "AWS_PROXY",
           "credentials": "${credentials}",
           "responses" : {
             "default" : {
@@ -71,7 +71,7 @@
         "x-amazon-apigateway-integration" : {
           "httpMethod" : "POST",
           "uri": "${lambda_login}",
-          "type" : "aws",
+          "type" : "AWS_PROXY",
           "credentials": "${credentials}",
           "responses" : {
             "default" : {
