@@ -70,6 +70,7 @@
           "httpMethod" : "POST",
           "uri": "${lambda_create}",
           "type" : "aws",
+          "credentials": "${credentials}",
           "responses" : {
             "default" : {
               "statusCode" : "200"
