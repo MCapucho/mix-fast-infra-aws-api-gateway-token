@@ -71,7 +71,7 @@ resource "aws_api_gateway_stage" "mixfast_api_gateway_stage" {
 }
 
 resource "aws_api_gateway_account" "mixfast_api_gateway_account" {
-  cloudwatch_role_arn = aws_iam_role.api_gateway_cloudwatch_role.arn
+  cloudwatch_role_arn = aws_iam_role.api_gateway_token_cloudwatch_role.arn
 }
 
 resource "aws_api_gateway_method_settings" "mixfast_api_gateway_settings" {
