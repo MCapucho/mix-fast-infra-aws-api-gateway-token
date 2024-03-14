@@ -29,7 +29,7 @@ resource "aws_api_gateway_integration" "mixfast_api_gateway_integration_vpc_link
   http_method = aws_api_gateway_method.mixfast_api_gateway_method.http_method
 
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:022874923015:function:mixfast_lambda_authorizer/invocations"
+  uri                     = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:211125470560:function:mixfast_lambda_authorizer/invocations"
   integration_http_method = "ANY"
   credentials             = aws_iam_role.api_gateway_token_lambda_role.arn
 }
